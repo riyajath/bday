@@ -1,0 +1,19 @@
+{
+  "name": "sister-bday",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "node --env-file=.env ./node_modules/astro/bin/astro.mjs dev",
+    "start": "node --env-file=.env ./node_modules/astro/bin/astro.mjs dev",
+    "build": "node --env-file=.env ./node_modules/astro/bin/astro.mjs build",
+    "preview": "node --env-file=.env ./node_modules/astro/bin/astro.mjs preview",
+    "astro": "node --env-file=.env ./node_modules/astro/bin/astro.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "canvas-confetti": "^1.9.4"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0"
+  }
+}

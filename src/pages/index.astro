@@ -1,0 +1,936 @@
+---
+// ✏️ CUSTOMIZE YOUR DETAILS HERE
+const sisterName = "Revathi";
+const brotherName = "Boopathy";
+const birthdayAge = "22nd";
+const birthdayDate = "23 November 2004";
+
+const memories = [
+  {
+    img: "/images/photo1.jpg",
+    caption: "Anbaana thangachi",
+    date: "Treasured Times",
+    tilt: "-2deg",
+  },
+  {
+    img: "/images/photo2.jpg",
+    caption: "Alagu thevathai",
+    date: "Partner in Crime",
+    tilt: "2deg",
+  },
+  {
+    img: "/images/photo3.jpg",
+    caption: "Paasamulla sagothari",
+    date: "Unmatched Bond",
+    tilt: "-1.5deg",
+  },
+  {
+    img: "/images/photo4.jpg",
+    caption: "Chella kulanthai",
+    date: "Best Sister Forever",
+    tilt: "1.5deg",
+  },
+];
+
+const reasons = [
+  "You always know how to make me laugh, even on terrible days.",
+  "You are the best secret keeper and brutally honest advisor.",
+  "Growing up with you is the luckiest thing that ever happened to me.",
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday, {sisterName}! 🎉</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- MOCK LOGIN OVERLAY GATE -->
+    <div id="login-overlay" class="login-overlay">
+      <div class="login-card">
+        <div class="lock-icon" id="lock-icon">🔐</div>
+        <h2>Special Access Required</h2>
+        <p class="login-sub">This surprise is locked exclusively for <strong>Revathi</strong>. Enter your birthday to unlock!</p>
+        
+        <form id="login-form" class="login-form">
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              id="bday-input" 
+              placeholder="DDMMYYYY or DD/MM/YYYY" 
+              autocomplete="off" 
+              required 
+            />
+          </div>
+          <button type="submit" id="unlock-btn" class="unlock-btn">
+            ✨ Unlock Surprise 🎁
+          </button>
+        </form>
+
+        <p id="login-error" class="login-error" aria-live="polite"></p>
+        <p class="login-hint">💡 Hint: The special date in 2004 when you arrived on Earth!</p>
+      </div>
+    </div>
+
+    <!-- SITE CONTENT (BLURRED UNTIL UNLOCKED) -->
+    <div id="site-wrapper" class="site-blurred">
+      <main>
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <span class="badge">🎈 Celebrating Your {birthdayAge} Birthday • {birthdayDate}</span>
+        <h1>Happy Birthday, <span class="highlight">{sisterName}</span>!</h1>
+        <p class="subtitle">
+          A tiny corner of the internet built just for you—because a normal text wasn't enough.
+        </p>
+
+        <!-- Interactive Birthday Cake -->
+        <div class="cake-box">
+          <div id="flame" class="flame" title="Click to make a wish!">🔥</div>
+          <div class="cake">🎂</div>
+        </div>
+
+        <div class="actions">
+          <button id="confetti-btn" class="btn primary">🎉 Pop Confetti</button>
+          <button id="wish-btn" class="btn secondary">🌬️ Blow Out Candle</button>
+        </div>
+        <p id="wish-status" class="wish-status" aria-live="polite"></p>
+      </section>
+
+      <!-- POLAROID GALLERY -->
+      <section class="gallery-section">
+        <h2>Core Memories 📸</h2>
+        <div class="polaroid-grid">
+          {memories.map((item) => (
+            <figure class="polaroid" style={`--tilt: ${item.tilt}`}>
+              <img src={item.img} alt={item.caption} loading="lazy" />
+              <figcaption>
+                <span class="caption-text">{item.caption}</span>
+                <span class="caption-date">{item.date}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <!-- SISTER POEM SECTION -->
+      <section class="poem-section">
+        <div class="poem-card">
+          <span class="poem-tag">🌸 A Tribute to My Sister</span>
+          <h2 class="poem-title">&ldquo;Udan Pirakatha En Uyire Thangai Revathi!&rdquo;</h2>
+          <div class="poem-body">
+            <p>
+              Udan pirakavillai,<br />
+              Oru thai vayitril valaravillai,<br />
+              Aanaal en uyir kooda valarnthaval nee thaan.
+            </p>
+            <p>
+              Ratham onnu illa,<br />
+              Aanaal paasam rathathai vida perusu nu,<br />
+              Namaku Puriya vaithathu nam anna thangai uravu.
+            </p>
+            <p>
+              Ulagam aaiyaram sonnathu,<br />
+              &ldquo;Aval un kooda pirakavillai&rdquo; endru,<br />
+              Enakku theriyum,<br />
+              Nee en kooda pirakavillai,<br />
+              Enakkaga pirakka patta aval endru.
+            </p>
+            <p>
+              En vazhkkai la,<br />
+              Naan ketkama kidaitha periya varam nee thaan.
+            </p>
+            <p>
+              Enakku oru thangachi venum nu,<br />
+              Naan kadavul kitta ketkave illa,<br />
+              Aana avar enakkaga unna anuppi vechitaaru.
+            </p>
+            <p>
+              Naan irukkum varai,<br />
+              Un kannula kannir varave koodathu,<br />
+              Un mukathula sirippu mattum thaan irukanum.
+            </p>
+            <p class="poem-highlight">
+              nee en udan pirakatha thangachi illa,<br />
+              Nee en uyir kooda pirantha thangachi!
+            </p>
+          </div>
+          <div class="poem-greeting">
+            💖 Happy birthday thangachi 🎂
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE LETTER -->
+      <section class="letter-section">
+        <h2>A Note From Me 💌</h2>
+        <button id="envelope-btn" class="envelope-trigger">
+          ✉️ Tap to Open Your Birthday Letter
+        </button>
+
+        <article id="letter-card" class="letter-card hidden">
+          <p>Dear {sisterName},</p>
+          <p>
+            Happy {birthdayAge} Birthday! Even though we argue over little things and I still pretend
+            not to listen to your advice, I’m genuinely so proud of the wonderful person you are.
+          </p>
+          <p>
+            Thank you for always having my back, bringing joy and laughter into our home,
+            and being my built-in best friend for life. May this year bring you everything
+            you’ve been working toward—abundant happiness, good health, and success in every step!
+          </p>
+          <p class="signoff">
+            Always cheering for you,<br />
+            <strong>— Your brother {brotherName} 💖</strong>
+          </p>
+        </article>
+      </section>
+
+      <!-- REASONS LIST -->
+      <section class="reasons-section">
+        <h2>Why You're the Best Sister 🏆</h2>
+        <div class="reasons-grid">
+          {reasons.map((reason, index) => (
+            <div class="reason-card">
+              <span class="number">0{index + 1}</span>
+              <p>{reason}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+
+      <footer>
+        Made with ❤️ (and mild sibling rivalry) for {sisterName} • With love from {brotherName}
+      </footer>
+
+      <!-- FLOATING MUSIC TOGGLE -->
+      <button id="music-btn" class="music-toggle" aria-label="Toggle background music">
+        <span class="music-icon">🎵</span>
+        <span class="music-text">Play Song</span>
+      </button>
+    </div>
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="bg-music" src="/song.mp3" loop preload="auto"></audio>
+  </body>
+</html>
+
+<!-- CLIENT-SIDE INTERACTIVITY -->
+<script>
+  import confetti from "canvas-confetti";
+
+  const fireConfetti = () => {
+    confetti({
+      particleCount: 90,
+      spread: 75,
+      origin: { y: 0.6 },
+      colors: ["#ff6b8b", "#ffd166", "#8338ec", "#06d6a0"],
+    });
+  };
+
+  // Confetti button
+  document.getElementById("confetti-btn")?.addEventListener("click", fireConfetti);
+
+  // Blow out candle interaction
+  const wishBtn = document.getElementById("wish-btn");
+  const flame = document.getElementById("flame");
+  const wishStatus = document.getElementById("wish-status");
+  let candleLit = true;
+
+  wishBtn?.addEventListener("click", () => {
+    if (candleLit) {
+      flame?.classList.add("blown-out");
+      if (wishStatus) wishStatus.textContent = "✨ Wish locked in! May it come true this year.";
+      if (wishBtn) wishBtn.textContent = "🔥 Relight Candle";
+      fireConfetti();
+    } else {
+      flame?.classList.remove("blown-out");
+      if (wishStatus) wishStatus.textContent = "";
+      if (wishBtn) wishBtn.textContent = "🌬️ Blow Out Candle";
+    }
+    candleLit = !candleLit;
+  });
+
+  // Envelope reveal interaction
+  const envelopeBtn = document.getElementById("envelope-btn");
+  const letterCard = document.getElementById("letter-card");
+
+  envelopeBtn?.addEventListener("click", () => {
+    letterCard?.classList.remove("hidden");
+    envelopeBtn.style.display = "none";
+    fireConfetti();
+  });
+
+  // Background music control (50% volume, starts only after login)
+  const bgMusic = document.getElementById("bg-music") as HTMLAudioElement | null;
+  const musicBtn = document.getElementById("music-btn");
+  const musicIcon = musicBtn?.querySelector(".music-icon");
+  const musicText = musicBtn?.querySelector(".music-text");
+  let isMusicPlaying = false;
+
+  if (bgMusic) {
+    bgMusic.volume = 0.5; // 50% volume as requested
+  }
+
+  const updateMusicUI = (playing: boolean) => {
+    isMusicPlaying = playing;
+    if (musicBtn) {
+      if (playing) {
+        musicBtn.classList.add("playing");
+        if (musicIcon) musicIcon.textContent = "🎶";
+        if (musicText) musicText.textContent = "Pause Song";
+      } else {
+        musicBtn.classList.remove("playing");
+        if (musicIcon) musicIcon.textContent = "🎵";
+        if (musicText) musicText.textContent = "Play Song";
+      }
+    }
+  };
+
+  const playMusic = () => {
+    if (!bgMusic) return;
+    bgMusic.volume = 0.5; // 50% volume
+    const playPromise = bgMusic.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          updateMusicUI(true);
+        })
+        .catch(() => {
+          updateMusicUI(false);
+        });
+    }
+  };
+
+  const pauseMusic = () => {
+    if (!bgMusic) return;
+    bgMusic.pause();
+    updateMusicUI(false);
+  };
+
+  musicBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (isMusicPlaying) {
+      pauseMusic();
+    } else {
+      playMusic();
+    }
+  });
+
+  // Mock Login & Birthday Password Validation
+  const loginOverlay = document.getElementById("login-overlay");
+  const siteWrapper = document.getElementById("site-wrapper");
+  const loginForm = document.getElementById("login-form");
+  const bdayInput = document.getElementById("bday-input") as HTMLInputElement | null;
+  const loginError = document.getElementById("login-error");
+  const lockIcon = document.getElementById("lock-icon");
+  const loginCard = loginOverlay?.querySelector(".login-card");
+
+  // Autofocus the input for smooth UX
+  setTimeout(() => bdayInput?.focus(), 150);
+
+  loginForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const rawVal = bdayInput?.value.trim() || "";
+    // Clean out slashes, dashes, dots, spaces (accepts "23112004", "23/11/2004", "23-11-2004")
+    const cleaned = rawVal.replace(/[\/\-\.\s]/g, "");
+
+    if (cleaned === "23112004" || cleaned === "231104") {
+      // Access granted!
+      if (lockIcon) lockIcon.textContent = "🎉";
+      if (loginError) {
+        loginError.style.color = "#06d6a0";
+        loginError.textContent = "✨ Access Granted! Happy Birthday Revathi 💖";
+      }
+
+      // Start the song at 50% volume right on this user interaction
+      playMusic();
+
+      // Confetti burst
+      fireConfetti();
+      setTimeout(fireConfetti, 400);
+
+      // Smoothly unlock and unblur
+      setTimeout(() => {
+        loginOverlay?.classList.add("unlocking");
+        siteWrapper?.classList.remove("site-blurred");
+        setTimeout(() => {
+          if (loginOverlay) loginOverlay.style.display = "none";
+        }, 550);
+      }, 650);
+    } else {
+      // Incorrect password: shake animation and helpful hint
+      if (loginCard) {
+        loginCard.classList.remove("shake");
+        void loginCard.offsetWidth; // trigger reflow
+        loginCard.classList.add("shake");
+      }
+      if (loginError) {
+        loginError.style.color = "#e63946";
+        loginError.textContent = "❌ Incorrect date! Try DDMMYYYY or DD/MM/YYYY (e.g. 23112004)";
+      }
+      bdayInput?.select();
+    }
+  });
+</script>
+
+<!-- SCOPED STYLING -->
+<style>
+  :root {
+    --bg: #fff8f3;
+    --surface: #ffffff;
+    --primary: #e85d75;
+    --secondary: #f4a261;
+    --text: #2b2628;
+    --muted: #6d6368;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background: radial-gradient(circle at top, #ffe6ec 0%, var(--bg) 55%);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+  }
+
+  h1, h2 {
+    font-family: "Playfair Display", serif;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.75rem;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #ffe0e6;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .highlight {
+    color: var(--primary);
+  }
+
+  .subtitle {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+  }
+
+  /* Cake */
+  .cake-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .flame {
+    font-size: 2rem;
+    margin-bottom: -0.6rem;
+    animation: flicker 0.9s infinite alternate;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .flame.blown-out {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.5);
+  }
+
+  .cake {
+    font-size: 4.2rem;
+  }
+
+  @keyframes flicker {
+    from { transform: scale(1) rotate(-3deg); }
+    to { transform: scale(1.12) rotate(3deg); }
+  }
+
+  /* Buttons */
+  .actions {
+    display: flex;
+    gap: 0.85rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    border: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(232, 93, 117, 0.22);
+  }
+
+  .primary {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .secondary {
+    background: var(--surface);
+    color: var(--text);
+    border: 2px solid #f0d7dc;
+  }
+
+  .wish-status {
+    margin-top: 1rem;
+    min-height: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  /* Polaroids */
+  .polaroid-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .polaroid {
+    background: var(--surface);
+    padding: 0.85rem 0.85rem 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 12px 28px rgba(43, 38, 40, 0.08);
+    transform: rotate(var(--tilt));
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .polaroid:hover {
+    transform: rotate(0deg) scale(1.03);
+    box-shadow: 0 16px 36px rgba(43, 38, 40, 0.15);
+    z-index: 2;
+  }
+
+  .polaroid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 4px;
+    background: #f5e6e8;
+  }
+
+  .polaroid figcaption {
+    margin-top: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .caption-text {
+    font-family: "Caveat", cursive;
+    font-size: 1.45rem;
+    color: var(--text);
+  }
+
+  .caption-date {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* Sister Poem Section */
+  .poem-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .poem-card {
+    background: linear-gradient(145deg, #ffffff 0%, #fff7f9 100%);
+    max-width: 680px;
+    width: 100%;
+    padding: 2.75rem 2rem;
+    border-radius: 20px;
+    border: 1px solid #ffdbe2;
+    box-shadow: 0 16px 40px rgba(232, 93, 117, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .poem-card::before {
+    content: "❝";
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 5rem;
+    color: rgba(232, 93, 117, 0.08);
+    font-family: serif;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .poem-tag {
+    display: inline-block;
+    background: #ffe6ec;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.95rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  .poem-title {
+    font-size: clamp(1.35rem, 4vw, 1.85rem);
+    color: var(--primary);
+    margin-bottom: 1.75rem;
+    line-height: 1.35;
+  }
+
+  .poem-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #40363a;
+  }
+
+  .poem-highlight {
+    font-family: "Caveat", cursive;
+    font-size: 1.65rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: 0.5rem;
+    line-height: 1.45;
+  }
+
+  .poem-greeting {
+    margin-top: 2rem;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: 999px;
+    box-shadow: 0 6px 20px rgba(232, 93, 117, 0.25);
+  }
+
+  /* Letter */
+  .letter-section {
+    text-align: center;
+  }
+
+  .envelope-trigger {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 1.25rem 2.2rem;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(232, 93, 117, 0.25);
+    transition: transform 0.2s ease;
+  }
+
+  .envelope-trigger:hover {
+    transform: scale(1.03);
+  }
+
+  .letter-card {
+    background: var(--surface);
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    border-radius: 18px;
+    text-align: left;
+    box-shadow: 0 16px 40px rgba(43, 38, 40, 0.08);
+    border: 1px solid #f7e1e6;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    animation: fadeUp 0.5s ease;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .signoff {
+    margin-top: 0.5rem;
+    font-family: "Caveat", cursive;
+    font-size: 1.6rem;
+    color: var(--primary);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Reasons */
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .reason-card {
+    background: var(--surface);
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(43, 38, 40, 0.05);
+    border-top: 4px solid var(--primary);
+  }
+
+  .number {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  /* Floating Music Toggle */
+  .music-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: rgba(255, 255, 255, 0.94);
+    border: 2px solid #ffd1dc;
+    border-radius: 999px;
+    padding: 0.65rem 1.15rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(232, 93, 117, 0.18);
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .music-toggle:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(232, 93, 117, 0.28);
+    border-color: var(--primary);
+  }
+
+  .music-toggle.playing {
+    background: linear-gradient(135deg, #fff0f3, #ffe6eb);
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .music-toggle.playing .music-icon {
+    display: inline-block;
+    animation: bounceNote 1s infinite alternate ease-in-out;
+  }
+
+  @keyframes bounceNote {
+    from { transform: scale(1) rotate(-8deg); }
+    to { transform: scale(1.22) rotate(8deg); }
+  }
+
+  /* Site Blur Wrapper */
+  #site-wrapper {
+    transition: filter 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease;
+  }
+
+  #site-wrapper.site-blurred {
+    filter: blur(18px);
+    pointer-events: none;
+    user-select: none;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Mock Login Overlay */
+  .login-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 248, 243, 0.65);
+    backdrop-filter: blur(8px);
+    padding: 1.25rem;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .login-overlay.unlocking {
+    opacity: 0;
+    transform: scale(1.04);
+    pointer-events: none;
+  }
+
+  .login-card {
+    background: #ffffff;
+    max-width: 440px;
+    width: 100%;
+    padding: 2.75rem 2.2rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(232, 93, 117, 0.22);
+    border: 2px solid #ffd1dc;
+    text-align: center;
+    animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes popIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .lock-icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.8rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .login-card h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.85rem;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+  }
+
+  .login-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.75rem;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .input-wrapper input {
+    width: 100%;
+    padding: 0.95rem 1.2rem;
+    font-size: 1.1rem;
+    text-align: center;
+    letter-spacing: 1.5px;
+    border: 2px solid #f0d7dc;
+    border-radius: 14px;
+    outline: none;
+    font-family: inherit;
+    color: var(--text);
+    background: #fffdfd;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .input-wrapper input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(232, 93, 117, 0.15);
+  }
+
+  .unlock-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #ffffff;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(232, 93, 117, 0.28);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .unlock-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(232, 93, 117, 0.35);
+  }
+
+  .login-error {
+    min-height: 1.5rem;
+    margin-top: 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e63946;
+  }
+
+  .login-hint {
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .shake {
+    animation: shakeAnim 0.4s ease-in-out;
+  }
+
+  @keyframes shakeAnim {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+  }
+</style>
